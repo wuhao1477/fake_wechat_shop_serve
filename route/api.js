@@ -15,7 +15,13 @@ router.get("/login", async function (req, res) {
         secret,
     } = req.query
     // let token = await getToken(appid, secret)
-    res.send({"code":20000,"data":{"token":"56_5SfhW-kl8jarsh2IvtnKtU7M4qS-yLwXgoBRJXDiXHOaX_ARqNTVIpLPAF8HNnTx7FtczAu7ncYcQBufI39Lmv0JHMlnb1VD9lEozrws7DjMmz9ulpawQA4VFTXWnCmFJZuXmqAeqBG38C_qFOXdADAQZI","access_token":"56_5SfhW-kl8jarsh2IvtnKtU7M4qS-yLwXgoBRJXDiXHOaX_ARqNTVIpLPAF8HNnTx7FtczAu7ncYcQBufI39Lmv0JHMlnb1VD9lEozrws7DjMmz9ulpawQA4VFTXWnCmFJZuXmqAeqBG38C_qFOXdADAQZI","expires_in":7200}})
+
+    let token = {"code":200,"data":{"token":"56_5SfhW-kl8jarsh2IvtnKtU7M4qS-yLwXgoBRJXDiXHOaX_ARqNTVIpLPAF8HNnTx7FtczAu7ncYcQBufI39Lmv0JHMlnb1VD9lEozrws7DjMmz9ulpawQA4VFTXWnCmFJZuXmqAeqBG38C_qFOXdADAQZI","access_token":"56_5SfhW-kl8jarsh2IvtnKtU7M4qS-yLwXgoBRJXDiXHOaX_ARqNTVIpLPAF8HNnTx7FtczAu7ncYcQBufI39Lmv0JHMlnb1VD9lEozrws7DjMmz9ulpawQA4VFTXWnCmFJZuXmqAeqBG38C_qFOXdADAQZI","expires_in":7200}}
+    if(token.code == 200){
+        res.header("x-token","123")
+    }
+    res.send(token)
+    res.end()
 });
 
 function getToken(appid, secret) {
